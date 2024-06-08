@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #313131; color: #fff;">
+    <h1 id="heading">My name is <span id="change"> Shivam</span></h1>
+    <button id="stop">Stop</button>
+
+    <div id="interval" style="margin-top: 100px;">        
+        <button id="one" value="Start">Start</button>
+        <button id="two" value="Stop">Stop</button>
+    </div>
+
+</body>
+<script>
+    const changeName = function(){
+        document.getElementById('change').innerHTML = 'Manish';
+    }
+    const changed = setTimeout(changeName,5000);
+    document.getElementById('stop').addEventListener('click',function(){
+        clearTimeout(changed);
+        console.log('stopped');
+    })
+    // const R = 123;
+    // const G = 234;
+    // const B = 112;
+    // document.body.style.background = `rgb(${R},${G},${B})`;
+
+    const one = document.getElementById('one');
+    const two = document.getElementById('two');
+
+    const answer = function(){
+        console.log("yes");
+    }
+    let print;
+    document.getElementById('one').addEventListener('click',function(){
+       print = setInterval(answer,1000);
+    });
+    document.getElementById('two').addEventListener('click',function(){
+       clearInterval(print);
+    });
+
+
+    
+
+
+
+
+    
+</script>
+</html>

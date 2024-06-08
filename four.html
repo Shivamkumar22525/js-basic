@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <ul class="lang">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // function addlanguage (name){
+    //     const li = document.createElement('li');
+    //     li.innerHTML=`${name}`;
+    //     document.querySelector('.lang').appendChild(li);
+    // }
+    // addlanguage("Java");
+    // addlanguage("python");
+
+    const fun = (name)=>{
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(name));
+        document.querySelector('.lang').appendChild(li);
+    }
+    fun("java");
+    fun("c++");
+    fun("swift");
+    fun("rust");
+    fun("ruby");
+
+    // Edit
+
+        const li = document.querySelector("li:nth-child(6)");
+        const newli = document.createElement('li');
+        newli.textContent = 'C#';
+        li.replaceWith(newli);
+    
+    //Edit2
+
+    const first = document.querySelector("li:first-child");
+    first.outerHTML = ("<li>swift</li>");
+
+    //Remove
+    const rem = document.querySelector("li:last-child");
+    rem.remove();
+
+    
+
+</script>
+</html>

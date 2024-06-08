@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Press Start button to generate random color</h1>
+    <button id="one">Start</button>
+    <button id="two">Stop</button>
+</body>
+<script>
+    const min = 0;
+    const max = 255;   
+    
+    let back = function(){ 
+        let R = Math.floor(Math.random()*(max-min+1))+min;
+        let G = Math.floor(Math.random()*(max-min+1))+min;
+        let B = Math.floor(Math.random()*(max-min+1))+min;              
+        document.body.style.background = `rgb(${R},${G},${B})`;
+        console.log("shivam");
+    }
+    // setInterval(back,1000)
+    let change;
+    document.getElementById('one').addEventListener('click',function(){
+        change = setInterval(back,1000)
+        document.getElementById('one').disabled = true;
+    });
+
+    document.getElementById('two').addEventListener('click',function(){
+        clearInterval(change);
+        document.getElementById('one').disabled = false;
+    });
+
+
+</script>
+</html>

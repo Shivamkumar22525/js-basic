@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Color changer 2</h1>
+    <button id="one">Start</button>
+    <button id="two">Stop</button>
+</body>
+<script>
+
+    function color(){
+        const hex = "0123456789ABCDEF";
+        let change = "#";
+        for (let i = 0; i < 6; i++) {
+            change += hex[Math.floor(Math.random()*16)];        
+        }
+        return change;
+    }
+    
+    let start;
+    const changebg = function(){
+        if(!start){
+            start = setInterval(bg,1000);
+        }
+        
+        function bg(){
+            document.body.style.background = color();
+        }
+    }
+
+    const exit = function stop(){
+        clearInterval(start);
+        start = null;
+    }
+    
+    document.getElementById('one').addEventListener('click',changebg);
+
+    document.getElementById('two').addEventListener('click',exit);
+
+</script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    --tab-group-one: #2dc7ff;
+    --tab-group-two: #00abe7;
+    --tab-group-three: #0081af;
+    background: linear-gradient(to left, #ead2ac, rgb(40, 39, 39));
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  
+  .form-wrapper {
+    max-width: 400px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255,255,255,.9);
+    border-radius: 5px;
+  }
+  
+  .form-tabs {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .form-tabs li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0,0,0,0.05);
+    cursor: pointer;
+  }
+  
+  .form-tab.active-tab {
+    background-color: inherit;
+    font-weight: 600;
+  }
+  
+  .form-tab-first.active-tab {
+    color: var(--tab-group-one);
+  }
+  
+  .form-tab-second.active-tab {
+    color: var(--tab-group-two);
+  }
+  
+  .form-tab-third.active-tab {
+    color: var(--tab-group-three);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input {
+    background-color: transparent;
+    padding: 15px 20px;
+    border: none;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.25s;
+  }
+  
+  form .tab-group-one:focus {
+    border-left: 5px solid var(--tab-group-one);
+  }
+  
+  form .tab-group-two:focus {
+    border-left: 5px solid var(--tab-group-two);
+  }
+  
+  form .tab-group-three:focus {
+    border-left: 5px solid var(--tab-group-three);
+  }
+  
+  form button {
+    border-radius: 0 0 5px 5px;
+    padding: 15px;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  button.tab-group-one {
+    background-color: var(--tab-group-one);
+  }
+  
+  button.tab-group-two {
+    background-color: var(--tab-group-two);
+  }
+  
+  button.tab-group-three {
+    background-color: var(--tab-group-three);
+  }
+  
+  .tab-group-two,
+  .tab-group-three {
+    display:none;
+  }
+    </style>
+</head>
+<body>
+    <div class="form-wrapper">
+        <ul class="form-tabs">
+          <li class="form-tab form-tab-first active-tab" data-tabGroup="One">Create User</li>
+          <li class="form-tab form-tab-second" data-tabGroup="Two">Update User</li>
+          <li class="form-tab form-tab-third" data-tabGroup="Three">Delete User</li>
+        </ul>
+        <form>
+          <input type="text" placeholder="User-Id" class="tab-group-one"/>
+          <input type="text" placeholder="Name" class="tab-group-one"/>
+          <input type="password" placeholder="Password" class="tab-group-one"/>
+          <button class="tab-group-one">Create</button>
+
+          <input type="text" placeholder="User-Id" class="tab-group-two"/>
+          <input type="password" placeholder="New Password" class="tab-group-two"/>
+          <button class="tab-group-two">Update</button>
+
+          <input type="text" placeholder="User-Id" class="tab-group-three"/>
+          <input type="password" placeholder="Password" class="tab-group-three"/>
+          <button class="tab-group-three">Delete</button>
+        </form>
+      </div>
+      <script>
+        const formTabs = document.querySelectorAll(".form-tab");
+const tabGroupOne = document.querySelectorAll(".tab-group-one");
+const tabGroupTwo = document.querySelectorAll(".tab-group-two");
+const tabGroupThree = document.querySelectorAll(".tab-group-three");
+
+formTabs.forEach(el => el.addEventListener('click', handleChanges
+))
+
+function handleChanges(e) {
+  addHidden();
+  removeHidden(e);
+  makeActive(e);
+}
+
+function makeActive(e) {
+  formTabs.forEach(el => el.classList.remove('active-tab'));
+  e.target.classList.add('active-tab');
+}
+
+function removeHidden(e) {
+  switch(e.target.dataset.tabgroup) {
+    case ("One"):
+      tabGroupOne.forEach(el => el.setAttribute("style", "display:block"));
+      break;
+    case ("Two"):
+      tabGroupTwo.forEach(el => el.setAttribute("style", "display:block;"))
+      break;
+    case("Three"):
+      tabGroupThree.forEach(el => el.setAttribute("style", "display: block"))
+      break;
+  }
+}
+
+function addHidden() {
+  let arr = [
+    ...tabGroupOne,
+    ...tabGroupTwo,
+    ...tabGroupThree
+  ];
+  arr.forEach(el => el.setAttribute("style", "display:none"));
+}
+      </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+*{
+    margin: 0px;
+    padding: 0px;
+} 
+
+body{
+    background-color: black;
+    color: rgb(255, 132, 0);
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Changer{
+    margin: 100px auto 100px;
+    width: 100%;
+    text-align: center;
+}
+
+span{
+    display: inline-block;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+
+.button{   
+    height: 100px;
+    width: 100px;
+    border: solid rgb(255, 255, 255) 5px;    
+}
+
+#Red{
+    background-color: red;
+}
+#Yellow{
+    background-color: yellow;
+}
+#Blue{
+    background-color: blue;
+}
+#Green{
+    background-color: green;
+}

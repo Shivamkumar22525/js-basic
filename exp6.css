@@ -1,0 +1,104 @@
+body {
+    --tab-group-one: #2dc7ff;
+    --tab-group-two: #00abe7;
+    --tab-group-three: #0081af;
+    background: linear-gradient(to left, #ead2ac, #eaba6b);
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  
+  .form-wrapper {
+    max-width: 400px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255,255,255,.9);
+    border-radius: 5px;
+  }
+  
+  .form-tabs {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .form-tabs li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0,0,0,0.05);
+    cursor: pointer;
+  }
+  
+  .form-tab.active-tab {
+    background-color: inherit;
+    font-weight: 600;
+  }
+  
+  .form-tab-first.active-tab {
+    color: var(--tab-group-one);
+  }
+  
+  .form-tab-second.active-tab {
+    color: var(--tab-group-two);
+  }
+  
+  .form-tab-third.active-tab {
+    color: var(--tab-group-three);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input {
+    background-color: transparent;
+    padding: 15px 20px;
+    border: none;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.25s;
+  }
+  
+  form .tab-group-one:focus {
+    border-left: 5px solid var(--tab-group-one);
+  }
+  
+  form .tab-group-two:focus {
+    border-left: 5px solid var(--tab-group-two);
+  }
+  
+  form .tab-group-three:focus {
+    border-left: 5px solid var(--tab-group-three);
+  }
+  
+  form button {
+    border-radius: 0 0 5px 5px;
+    padding: 15px;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  button.tab-group-one {
+    background-color: var(--tab-group-one);
+  }
+  
+  button.tab-group-two {
+    background-color: var(--tab-group-two);
+  }
+  
+  button.tab-group-three {
+    background-color: var(--tab-group-three);
+  }
+  
+  .tab-group-two,
+  .tab-group-three {
+    display:none;
+  }

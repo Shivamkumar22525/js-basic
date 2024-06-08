@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #212121;
+        color: #fff;
+    }
+    .img{
+        width: 200px;        
+    }
+    #link{
+        color: blue;
+    }
+    
+</style>
+<body>
+    <div>
+        <ul id="images">
+            <li id="image1">
+                <img src="tree-736885_1280.jpg"  class="img" id="one" alt="img1">
+            </li>
+            <li id="image2">
+                <img src="free-nature-images.jpg" class="img" id="two" alt="img2">
+            </li>
+            <li id="image3">
+                <img src="istockphoto-1146517111-612x612.jpg" class="img" id="three" alt="img3">
+            </li>
+            <li id="image4">
+                <img src="painting-mountain-lake-with-mountain-background_188544-9126.avif" class="img" id="four" alt="img4">
+            </li>
+            <li id="link">
+                <a id="link" href="https://leetcode.com/manishkapoor">leetcode</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.getElementById('three').addEventListener('click',function(e){
+        // console.log("Taj Mahal")
+        // e.stopPropagation();
+    });
+    document.getElementById('link').addEventListener('click',function(e){
+        // e.preventDefault();
+    })
+
+    document.getElementById('images').addEventListener('click',function(e){
+        // console.log('ul is clicked')
+        // e.stopPropagation();       
+    });
+    document.getElementById('images').addEventListener('click',function(e){        
+        // let removeIt = e.target.parentNode;        
+        // removeIt.remove();
+        // removeIt.parentNode.removeChild(removeIt);
+
+        let value = e.target.tagName;
+        console.log(value);        
+        if(value ==='IMG'){
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }       
+    });
+
+</script>
+</html>
